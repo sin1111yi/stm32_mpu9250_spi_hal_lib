@@ -1,0 +1,1 @@
+stm32_mpu9250_spi_hal_lib
