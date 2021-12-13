@@ -257,9 +257,6 @@ void MPU9250_ReadGyro(MPU9250 *mpu) {
 /*
  * @brief   read mag origin value and calculate real value
  *          data will be stored in mpu
- *
- * @notice  this part may have some bugs, but I guess my GY-91 is broken
- *          until I get my new module, I can't judge where the problem is
  * */
 void MPU9250_ReadMag(MPU9250 *mpu) {
 	uint8_t mag_adjust[3] = { 0 };
@@ -311,4 +308,13 @@ void MPU9250_ReadMag(MPU9250 *mpu) {
 	mpu->mpu_data.Magn[2] = (float) mpu->mpu_data.Magn_row[2]
 			* (((mag_adjust[2] - 128) / 256.0) + 1);
 	mpu->mpu_data.Magn[2] = mpu->mpu_data.Magn_row[2] * 0.15;
+}
+/*
+ * @brief   read all 9 DOF data
+ *          data will be stored in mpu
+ * */
+void MPU9250_ReadData(MPU9250 *mpu) {
+	MPU9250_ReadAccel(mpu);
+	MPU9250_ReadGyro(mpu);
+	MPU9250_ReadMag(mpu);
 }

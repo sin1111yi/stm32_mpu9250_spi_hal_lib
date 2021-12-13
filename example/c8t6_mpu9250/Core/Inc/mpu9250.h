@@ -191,6 +191,7 @@ uint8_t MPU9250_Init(MPU9250 *mpu);
 void MPU9250_ReadAccel(MPU9250 *mpu);
 void MPU9250_ReadGyro(MPU9250 *mpu);
 void MPU9250_ReadMag(MPU9250 *mpu);
+void MPU9250_ReadData(MPU9250 *mpu);
 
 #ifdef __cplusplus
 }
