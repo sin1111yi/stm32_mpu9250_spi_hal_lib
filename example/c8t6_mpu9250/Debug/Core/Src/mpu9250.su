@@ -11,4 +11,4 @@ mpu9250.c:168:13:MPU9250_StructInit	24	static
 mpu9250.c:183:9:MPU9250_Init	16	static
 mpu9250.c:223:6:MPU9250_ReadAccel	16	static
 mpu9250.c:242:6:MPU9250_ReadGyro	16	static
-mpu9250.c:261:6:MPU9250_ReadMag	40	static
+mpu9250.c:264:6:MPU9250_ReadMag	40	static

@@ -115,9 +115,11 @@ int main(void) {
 				mpu.mpu_data.Gyro[1], mpu.mpu_data.Gyro[2]);
 		u1_printf("MX:%d \tMY:%d\t MZ:%d\n", mpu.mpu_data.Magn_row[0],
 				mpu.mpu_data.Magn_row[1], mpu.mpu_data.Magn_row[2]);
+		u1_printf("MX:%f \tMY:%f\t MZ:%f\n", mpu.mpu_data.Magn[0],
+				mpu.mpu_data.Magn[1], mpu.mpu_data.Magn[2]);
 		u1_printf("*************************\n");
 
-		HAL_Delay(500);
+		HAL_Delay(50);
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

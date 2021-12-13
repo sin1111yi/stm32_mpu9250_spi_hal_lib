@@ -270,6 +270,9 @@ void MPU9250_ReadMag(MPU9250 *mpu) {
 	mag_adjust[1] = dataBuf[1];
 	mag_adjust[2] = dataBuf[2];
 
+	// read AK8963_ST2_REG is necessary
+	// ST2 register has a role as data reading end register(on page 51)
+
 	mpu_r_ak8963_regs(MAG_XOUT_L, 1);
 	mag_buffer[0] = dataBuf[0];
 	mpu_r_ak8963_regs(AK8963_ST2_REG, 1); // data read finish reg
@@ -290,6 +293,7 @@ void MPU9250_ReadMag(MPU9250 *mpu) {
 	mpu_r_ak8963_regs(MAG_ZOUT_H, 1);
 	mag_buffer[5] = dataBuf[0];
 	mpu_r_ak8963_regs(AK8963_ST2_REG, 1);
+
 
 	mpu->mpu_data.Magn_row[0] = (mag_buffer[1] << 8) | mag_buffer[0];
 	mpu->mpu_data.Magn_row[1] = (mag_buffer[3] << 8) | mag_buffer[2];
