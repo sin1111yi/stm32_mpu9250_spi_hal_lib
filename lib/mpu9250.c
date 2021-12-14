@@ -68,7 +68,7 @@ static uint8_t spi_wr_byte(SPI_HandleTypeDef *hspi, uint8_t byte) {
 	return feedback;
 }
 /*
- * @brief   write several bytes though spi
+ * @brief   write several bytes through spi
  * @param   address: address of the first reg
  * @param   bytes: number of bytes to write
  * @param   num: number of bytes
@@ -85,7 +85,7 @@ static void spi_w_bytes(SPI_HandleTypeDef *hspi, uint8_t address,
 }
 
 /*
- * @brief   read several bytes though spi
+ * @brief   read several bytes through spi
  * @param   address: address of the first reg
  * @param   num: number of bytes to read, number < DATABUF_SIZ
  * @return  data read array
@@ -104,7 +104,7 @@ static void spi_r_bytes(SPI_HandleTypeDef *hspi, uint8_t address, uint8_t num) {
 }
 /*** basic mpu9250 operate ***/
 /*
- * @brief   write mpu9250 reg though spi
+ * @brief   write mpu9250 reg through spi
  * @param   address: address of reg to write
  * @param   byte: byte to write
  * */
@@ -113,7 +113,7 @@ static void mpu_w_reg(uint8_t address, uint8_t byte) {
 }
 
 /*
- * @brief   read mpu9250 regs though spi
+ * @brief   read mpu9250 regs through spi
  * @param   address: address of reg to write
  * @param   num: number of byte to read
  * @return  read bytes array
@@ -123,7 +123,7 @@ static void mpu_r_regs(uint8_t address, uint8_t num) {
 }
 /******* basic ak8963 operate *******/
 /*
- * @brief   write AK8963 regs though I2C in MPU9250
+ * @brief   write AK8963 regs through I2C in MPU9250
  * @param   address: address of AK8963 reg to write
  * @param   byte: byte to write
  * */
@@ -134,7 +134,7 @@ static void mpu_w_ak8963_reg(uint8_t address, uint8_t byte) {
 	mpu_w_reg(I2C_SLV0_CTRL, 0x81);
 }
 /*
- * @brief read AK8963 regs though I2C in MPU9250
+ * @brief read AK8963 regs through I2C in MPU9250
  * @param   address: first address of AK8963 regs to read
  * @param   num: number of byte to read
  * @return  read bytes array
