@@ -7,6 +7,7 @@ fix some possible problem about data type
 2021/12/13   
 Add function:     
 void MPU9250_ReadData(MPU9250* mpu)   
+
 ***v1.0.0***   
 2021/12/13   
 Now it can be used on stm32 through hal lib, please check more details in example/c8t6_mpu9250.   
