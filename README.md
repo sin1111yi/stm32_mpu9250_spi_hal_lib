@@ -1,8 +1,13 @@
 # **stm32_mpu9250_spi_hal_lib**
-***v1.0.1***   
+***v1.1.1***   
+2021/12/17   
+fix some possible problem about data type
+
+***v1.1.0***   
 2021/12/13   
 Add function:     
 void MPU9250_ReadData(MPU9250* mpu)   
+
 ***v1.0.0***   
 2021/12/13   
 Now it can be used on stm32 through hal lib, please check more details in example/c8t6_mpu9250.   
