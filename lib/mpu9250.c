@@ -68,7 +68,7 @@ static uint8_t spi_wr_byte(SPI_HandleTypeDef *hspi, uint8_t byte) {
 	return feedback;
 }
 /*
- * @brief   write several bytes through spi
+ * @brief   write several bytes  spi
  * @param   address: address of the first reg
  * @param   bytes: number of bytes to write
  * @param   num: number of bytes
@@ -224,15 +224,15 @@ void MPU9250_ReadAccel(MPU9250 *mpu) {
 	// m/s
 	mpu_r_regs(ACCEL_XOUT_H, 6);
 	// calculate x axis
-	mpu->mpu_data.Accel_row[0] = (dataBuf[0] << 8) | dataBuf[1];
+	mpu->mpu_data.Accel_row[0] = ((int16_t)dataBuf[0] << 8) | dataBuf[1];
 	mpu->mpu_data.Accel[0] = (float) mpu->mpu_data.Accel_row[0] / 208.980;
 
 	// calculate y axis
-	mpu->mpu_data.Accel_row[1] = (dataBuf[2] << 8) | dataBuf[3];
+	mpu->mpu_data.Accel_row[1] = ((int16_t)dataBuf[2] << 8) | dataBuf[3];
 	mpu->mpu_data.Accel[1] = (float) mpu->mpu_data.Accel_row[1] / 208.980;
 
 	// calculate z axis
-	mpu->mpu_data.Accel_row[2] = (dataBuf[4] << 8) | dataBuf[5];
+	mpu->mpu_data.Accel_row[2] = ((int16_t)dataBuf[4] << 8) | dataBuf[5];
 	mpu->mpu_data.Accel[2] = (float) mpu->mpu_data.Accel_row[2] / 208.980;
 }
 /*
@@ -243,15 +243,15 @@ void MPU9250_ReadGyro(MPU9250 *mpu) {
 	// d/s
 	mpu_r_regs(GYRO_XOUT_H, 6);
 	// calculate x axis
-	mpu->mpu_data.Gyro_row[0] = (dataBuf[0] << 8) | dataBuf[1];
+	mpu->mpu_data.Gyro_row[0] = ((int16_t)dataBuf[0] << 8) | dataBuf[1];
 	mpu->mpu_data.Gyro[0] = mpu->mpu_data.Gyro_row[0] / 16.384;
 
 	// calculate y axis
-	mpu->mpu_data.Gyro_row[1] = (dataBuf[2] << 8) | dataBuf[3];
+	mpu->mpu_data.Gyro_row[1] = ((int16_t)dataBuf[2] << 8) | dataBuf[3];
 	mpu->mpu_data.Gyro[1] = mpu->mpu_data.Gyro_row[1] / 16.384;
 
 	// calculate z axis
-	mpu->mpu_data.Gyro_row[2] = (dataBuf[4] << 8) | dataBuf[5];
+	mpu->mpu_data.Gyro_row[2] = ((int16_t)dataBuf[4] << 8) | dataBuf[5];
 	mpu->mpu_data.Gyro[2] = mpu->mpu_data.Gyro_row[2] / 16.384;
 }
 /*
@@ -292,9 +292,9 @@ void MPU9250_ReadMag(MPU9250 *mpu) {
 	mpu_r_ak8963_regs(AK8963_ST2_REG, 1);
 
 
-	mpu->mpu_data.Magn_row[0] = (mag_buffer[1] << 8) | mag_buffer[0];
-	mpu->mpu_data.Magn_row[1] = (mag_buffer[3] << 8) | mag_buffer[2];
-	mpu->mpu_data.Magn_row[2] = (mag_buffer[5] << 8) | mag_buffer[4];
+	mpu->mpu_data.Magn_row[0] = ((int16_t)mag_buffer[1] << 8) | mag_buffer[0];
+	mpu->mpu_data.Magn_row[1] = ((int16_t)mag_buffer[3] << 8) | mag_buffer[2];
+	mpu->mpu_data.Magn_row[2] = ((int16_t)mag_buffer[5] << 8) | mag_buffer[4];
 
 	// calculate real value, check page53
 	mpu->mpu_data.Magn[0] = (float) mpu->mpu_data.Magn_row[0]
